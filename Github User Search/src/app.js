@@ -43,9 +43,11 @@ const AppLayout = () => {
             {res.map((elem) => {
               return (
                 <User
+                  key={elem.id}
                   avatar_url={elem.avatar_url}
                   display_login={elem.display_login}
                   hl_profile_bio={elem.hl_profile_bio}
+                  repos={elem.repos}
                 />
               );
             })}
@@ -56,7 +58,7 @@ const AppLayout = () => {
   );
 };
 
-const User = ({ avatar_url, display_login, hl_profile_bio }) => {
+const User = ({ avatar_url, display_login, hl_profile_bio, repos }) => {
   return (
     <div className="w-6/12 p-2 m-auto my-2 border-2 border-black">
       <img
@@ -69,6 +71,7 @@ const User = ({ avatar_url, display_login, hl_profile_bio }) => {
       <a href={hl_profile_bio} target="_blank" rel="noopener noreferrer">
         {display_login}
       </a>
+      <h3>Repos : {repos}</h3>
     </div>
   );
 };
